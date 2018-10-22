@@ -18,3 +18,7 @@
 <!-- <p>{{ serverCreationStatus }}</p> -->
 <p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
 <app-server *ngFor="let server of servers"></app-server>
+
+<button
+    class="btn btn-primary"
+    (click)="onCreateServer()">Display Details</button>
