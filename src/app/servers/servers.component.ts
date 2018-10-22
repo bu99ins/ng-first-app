@@ -41,6 +41,7 @@ export class ServersComponent implements OnInit {
 
   onShowDetails() {
     this.detailsShown = !this.detailsShown;
-    this.detailsClicks.push(this.detailsClicks.length + 1);
+    //this.detailsClicks.push(this.detailsClicks.length + 1);
+    this.detailsClicks.push(new Date());
   }
 }

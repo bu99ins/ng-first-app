@@ -25,6 +25,6 @@
 <p *ngIf="detailsShown">Secret Password = tuna</p>
 
 <p
-    *ngFor="let click of detailsClicks"
-    [ngStyle]="{backgroundColor: click > 4 ? 'blue' : 'none'}"
-    [ngClass]="{'big-val': click > 4}">Click {{click}}</p>
+    *ngFor="let click of detailsClicks; let i = index"
+    [ngStyle]="{backgroundColor: i > 3 ? 'blue' : 'none'}"
+    [ngClass]="{'big-val': i > 3}">Click {{click}}</p>
