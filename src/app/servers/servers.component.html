@@ -23,3 +23,5 @@
     class="btn btn-primary"
     (click)="onShowDetails()">Display Details</button>
 <p *ngIf="detailsShown">Secret Password = tuna</p>
+
+<p *ngFor="let click of detailsClicks">Click {{click}}</p>

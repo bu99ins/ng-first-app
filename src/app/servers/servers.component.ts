@@ -17,6 +17,7 @@ export class ServersComponent implements OnInit {
   serverCreated = false;
   servers = ["Testserver", "Testserver 2"];
   detailsShown = false;
+  detailsClicks = [];
 
   constructor() {
     setTimeout(() => {
@@ -39,5 +40,6 @@ export class ServersComponent implements OnInit {
 
   onShowDetails() {
     this.detailsShown = !this.detailsShown;
+    this.detailsClicks.push(this.detailsClicks.length + 1);
   }
 }
