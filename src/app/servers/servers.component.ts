@@ -16,6 +16,7 @@ export class ServersComponent implements OnInit {
   serverName = "Testserver";
   serverCreated = false;
   servers = ["Testserver", "Testserver 2"];
+  detailsShown = false;
 
   constructor() {
     setTimeout(() => {
@@ -34,5 +35,9 @@ export class ServersComponent implements OnInit {
 
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  onShowDetails() {
+    this.detailsShown = !this.detailsShown;
   }
 }
