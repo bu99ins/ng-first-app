@@ -16,6 +16,7 @@ export class ServersComponent implements OnInit {
   serverName = "Testserver";
   serverCreated = false;
   servers = ["Testserver", "Testserver 2"];
+
   detailsShown = false;
   detailsClicks = [];
 
