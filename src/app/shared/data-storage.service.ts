@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpResponse } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 import { RecipeService } from "../recipes/recipe.service";
 import { Recipe } from "../recipes/recipe.model";
@@ -21,9 +22,15 @@ export class DataStorageService {
       .get("https://ng-recipe-book-cfad6.firebaseio.com/recipes.json", {
         observe: "response"
       })
-      .subscribe((response: HttpResponse<Recipe[]>) => {
-        console.log(response);
-        this.recipeService.setRecipes(response.body);
+      .pipe(
+        map((response: HttpResponse<Recipe[]>) => {
+          for (let recipe of response.body)
+            if (!recipe["ingredients"]) recipe["ingredients"] = [];
+          return response.body;
+        })
+      )
+      .subscribe((recipes: Recipe[]) => {
+        this.recipeService.setRecipes(recipes);
       });
   }
 }
